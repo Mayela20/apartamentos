@@ -22,7 +22,10 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//ruta pra identidad
+var apiRouter= require('./routes/api/index');
+app.use('/api' ,apiRouter);
+//app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
